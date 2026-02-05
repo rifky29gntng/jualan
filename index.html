@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kyz Store | Premium Digital Services</title>
+    <link rel="icon" type="image/x-icon" href="https://files.catbox.moe/78uop6.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-black text-white max-w-md mx-auto min-h-screen relative font-inter galaxy-bg overflow-x-hidden">
+
+    <!-- Loading Screen -->
+    <div id="loading" class="loading-overlay">
+        <div class="loading-spinner mb-4"></div>
+        <div class="text-center">
+            <h2 class="text-xl font-black logo-text mb-2">Kyz Store</h2>
+            <p class="text-sm text-slate-400">Loading premium digital services...</p>
+            <div class="mt-6 w-48 h-2 bg-black/30 rounded-full overflow-hidden">
+                <div id="loading-bar" class="h-full bg-gradient-to-r from-utama to-sekunder rounded-full" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Particles Background -->
+    <div id="particles" class="particles-container"></div>
+
+    <!-- Back to Top Button -->
+    <div id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up text-white"></i>
+    </div>
+
+    <!-- Main Menu Screen -->
+    <div id="main-menu" class="px-5 py-10 min-h-screen flex flex-col justify-center relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <div class="relative w-24 h-24 rounded-3xl overflow-hidden border-4 border-utama/30 shadow-2xl mx-auto mb-6">
+                <img src="https://files.catbox.moe/78uop6.png" alt="Logo" 
+                     class="w-full h-full object-cover"
+                     onload="this.style.opacity='1'"
+                     style="opacity:0; transition: opacity 0.5s">
+                <div class="absolute inset-0 border-2 border-transparent rounded-3xl animate-spin-slow" 
+                     style="border-image: linear-gradient(135deg, #8b5cf6, #3b82f6, #06b6d4) 1"></div>
+            </div>
+            <h1 class="text-4xl font-black logo-text mb-2 tracking-tight">Kyz Store</h1>
+            <p class="text-sm text-slate-400 uppercase tracking-widest mb-1">Premium Digital Services</p>
+            <div class="flex items-center justify-center gap-2 mt-2">
+                <div class="w-2 h-2 rounded-full bg-hijau animate-pulse"></div>
+                <p class="text-xs text-slate-500">Online • 24/7 Support</p>
+            </div>
+        </div>
+        
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-4 mb-10">
+            <div class="stats-card rounded-2xl p-4 text-center">
+                <p class="text-2xl font-black text-utama">50+</p>
+                <p class="text-xs text-slate-400">Products</p>
+            </div>
+            <div class="stats-card rounded-2xl p-4 text-center">
+                <p class="text-2xl font-black text-cyan">1000+</p>
+                <p class="text-xs text-slate-400">Customers</p>
+            </div>
+            <div class="stats-card rounded-2xl p-4 text-center">
+                <p class="text-2xl font-black text-hijau">99%</p>
+                <p class="text-xs text-slate-400">Satisfaction</p>
+            </div>
+        </div>
+        
+        <!-- Menu Buttons -->
+        <div class="space-y-6">
+            <button onclick="showHostingMenu()" class="main-menu-btn w-full p-8 rounded-3xl flex items-center justify-between group relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-utama/0 via-utama/5 to-utama/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                <div class="flex items-center gap-6 relative z-10">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-utama/30 to-utama/10 flex items-center justify-center shadow-lg group-hover:shadow-glow-purple transition-all">
+                        <i class="fas fa-server text-3xl text-utama"></i>
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-xl font-black text-white mb-1">Hosting Menu</h3>
+                        <p class="text-sm text-slate-400">Panel & Scripts</p>
+                    </div>
+                </div>
+                <div class="relative z-10">
+                    <i class="fas fa-chevron-right text-utama text-xl group-hover:translate-x-2 transition-transform"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+            </button>
+            
+            <button onclick="showAppMenu()" class="main-menu-btn w-full p-8 rounded-3xl flex items-center justify-between group relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-cyan/0 via-cyan/5 to-cyan/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                <div class="flex items-center gap-6 relative z-10">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan/30 to-cyan/10 flex items-center justify-center shadow-lg group-hover:shadow-glow-cyan transition-all">
+                        <i class="fas fa-mobile-alt text-3xl text-cyan"></i>
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-xl font-black text-white mb-1">App Menu</h3>
+                        <p class="text-sm text-slate-400">Applications & Tools</p>
+                    </div>
+                </div>
+                <i class="fas fa-chevron-right text-cyan text-xl group-hover:translate-x-2 transition-transform relative z-10"></i>
+            </button>
+            
+            <button onclick="showSuntikMenu()" class="main-menu-btn w-full p-8 rounded-3xl flex items-center justify-between group relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-pink/0 via-pink/5 to-pink/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                <div class="flex items-center gap-6 relative z-10">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink/30 to-pink/10 flex items-center justify-center shadow-lg group-hover:shadow-glow-pink transition-all">
+                        <i class="fas fa-syringe text-3xl text-pink"></i>
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-xl font-black text-white mb-1">Suntik Menu</h3>
+                        <p class="text-sm text-slate-400">Social Media Services</p>
+                    </div>
+                </div>
+                <i class="fas fa-chevron-right text-pink text-xl group-hover:translate-x-2 transition-transform relative z-10"></i>
+            </button>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="mt-12 p-6 glass-card rounded-3xl">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-bold text-white">Today's Special</h3>
+                <span class="px-3 py-1 bg-gradient-to-r from-utama to-pink rounded-full text-xs font-bold">HOT</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-utama/20 to-pink/20 flex items-center justify-center">
+                    <i class="fas fa-fire text-utama"></i>
+                </div>
+                <div class="flex-1">
+                    <p class="font-bold text-white">IKY Panel - 50% OFF</p>
+                    <div class="flex items-center gap-2 mt-1">
+                        <p class="text-sm text-slate-400 line-through">Rp 18.000</p>
+                        <p class="text-lg font-black text-hijau">Rp 9.000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="mt-16 text-center">
+            <div class="flex items-center justify-center gap-4 mb-4">
+                <a href="https://t.me/rkyyzz" target="_blank" class="w-10 h-10 rounded-full bg-black/50 flex items-center justify-center hover:bg-utama/20 transition-colors tooltip">
+                    <i class="fab fa-telegram text-utama"></i>
+                    <span class="tooltip-text">Telegram Support</span>
+                </a>
+                <button onclick="showWhatsapp()" class="w-10 h-10 rounded-full bg-black/50 flex items-center justify-center hover:bg-hijau/20 transition-colors tooltip">
+                    <i class="fab fa-whatsapp text-hijau"></i>
+                    <span class="tooltip-text">WhatsApp Support</span>
+                </button>
+                <button onclick="showTutorial()" class="w-10 h-10 rounded-full bg-black/50 flex items-center justify-center hover:bg-cyan/20 transition-colors tooltip">
+                    <i class="fas fa-question-circle text-cyan"></i>
+                    <span class="tooltip-text">Tutorial & Guide</span>
+                </button>
+            </div>
+            <p class="text-xs text-slate-500">© 2026 Kyz Store. All rights reserved.</p>
+            <p class="text-xs text-slate-600 mt-1">Version 2.1.0 • Premium Edition</p>
+        </div>
+    </div>
+
+    <!-- Hosting Menu Content -->
+    <div id="hosting-content" class="hidden min-h-screen">
+        <!-- Navigation -->
+        <nav class="flex justify-between items-center p-5 sticky top-0 glass-card z-30 border-b border-utama/20 backdrop-blur-xl">
+            <div class="flex items-center gap-3">
+                <button onclick="showMainMenu()" class="w-12 h-12 flex items-center justify-center rounded-xl bg-black/80 text-utama shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95 ripple-btn">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div>
+                    <p class="font-black text-sm logo-text">Hosting Menu</p>
+                    <p class="text-[10px] text-slate-400">Panel & Scripts</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button onclick="showCart()" class="w-10 h-10 rounded-xl bg-black/50 flex items-center justify-center hover:bg-utama/20 transition-colors relative">
+                    <i class="fas fa-shopping-cart text-utama"></i>
+                    <span id="cart-count" class="notification-badge">0</span>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Content -->
+        <div class="px-5 py-6 space-y-8 pb-24">
+            <!-- Panel Product -->
+            <div class="glass-card rounded-3xl p-6 shadow-2xl product-card">
+                <div class="mb-6">
+                    <div class="relative rounded-2xl overflow-hidden mb-4">
+                        <img src="https://files.catbox.moe/yvwjct.jpg" alt="IKY OPEN PANEL PRIVAT" 
+                             class="w-full h-48 object-cover img-loader"
+                             onload="this.classList.remove('img-loader'); this.style.opacity='1'"
+                             style="opacity:0; transition: opacity 0.5s">
+                        <div class="absolute top-3 left-3 px-3 py-1 bg-gradient-to-r from-utama to-pink rounded-full text-xs font-bold">
+                            MOST POPULAR
+                        </div>
+                        <div class="absolute top-3 right-3 px-3 py-1 bg-black/70 rounded-full text-xs">
+                            <i class="fas fa-shield-alt mr-1"></i> Secure
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black text-white mb-2">IKY OPEN PANEL PRIVAT</h3>
+                    <p class="text-sm text-slate-300 mb-3">Panel Dijamin Awet • Vps Spek R16C8 • Masa Aktif 30 Hari</p>
+                    
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="flex items-center gap-1">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <span class="text-sm font-bold">4.9</span>
+                        </div>
+                        <span class="text-slate-500">•</span>
+                        <span class="text-sm text-slate-400">500+ Sold</span>
+                        <span class="text-slate-500">•</span>
+                        <span class="text-sm text-utama font-bold"><i class="fas fa-bolt mr-1"></i>Fast Delivery</span>
+                    </div>
+                </div>
+                
+                <!-- Price Selection -->
+                <div class="mb-6">
+                    <h4 class="text-lg font-bold text-white mb-4">Select Storage:</h4>
+                    <div class="grid grid-cols-3 gap-3" id="storage-options">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Benefits -->
+                <div class="mb-6 p-5 bg-black/40 rounded-2xl border border-utama/20">
+                    <h4 class="text-utama font-black mb-3 flex items-center gap-2">
+                        <i class="fas fa-gift"></i> Benefit Panel IKY:
+                    </h4>
+                    <ul class="text-sm text-slate-300 space-y-2">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-hijau"></i>
+                            <span>Panel Dijamin Awet</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-hijau"></i>
+                            <span>Vps Spek R16C8</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-hijau"></i>
+                            <span>Masa Aktif 30 Hari</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-hijau"></i>
+                            <span>Garansi 15 Hari (1x replace)</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-hijau"></i>
+                            <span>Anti Delay & Anti Delete</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-hijau"></i>
+                            <span>Admin Hanya 1 (Anti Intip)</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-4 p-3 bg-gradient-to-r from-utama/10 to-pink/10 rounded-xl">
+                        <p class="text-sm text-slate-300">
+                            <i class="fas fa-info-circle text-utama mr-2"></i>
+                            Minat? Contact: 
+                            <span class="text-utama font-bold">t.me/rkyyzz</span>
+                        </p>
+                        <p class="text-sm text-slate-300 mt-1">
+                            Kapan lagi beli panel murah + awet..!!
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="space-y-3">
+                    <button onclick="addToCart('IKY OPEN PANEL PRIVAT', 9000, 'UNLI')" 
+                            class="w-full bg-gradient-to-r from-utama to-sekunder text-white py-4 rounded-2xl font-black text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-2">
+                        <i class="fas fa-cart-plus"></i> Add to Cart
+                    </button>
+                    
+                    <button onclick="orderProduct('IKY OPEN PANEL PRIVAT - UNLI Storage')" 
+                            class="w-full btn-gradient text-white py-4 rounded-2xl font-black text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-2">
+                        <i class="fab fa-telegram"></i> Order Now via Telegram
+                    </button>
+                </div>
+            </div>
+            
+            <!-- SC NTED Product -->
+            <div class="glass-card rounded-3xl p-6 shadow-2xl product-card">
+                <div class="mb-6">
+                    <div class="relative rounded-2xl overflow-hidden mb-4">
+                        <img src="https://files.catbox.moe/8d80p1.jpg" alt="NEW RILIS NC TRASH V22" 
+                             class="w-full h-48 object-cover img-loader"
+                             onload="this.classList.remove('img-loader'); this.style.opacity='1'"
+                             style="opacity:0; transition: opacity 0.5s">
+                        <div class="absolute top-3 left-3 px-3 py-1 bg-gradient-to-r from-merah to-pink rounded-full text-xs font-bold">
+                            NEW RELEASE
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black text-white mb-2">NEW RILIS NC TRASH V22</h3>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-3 py-1 bg-gradient-to-r from-merah/20 to-pink/20 text-merah text-xs font-bold rounded-full">
+                            <i class="fas fa-exclamation-triangle mr-1"></i>Advanced Features
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Features Grid -->
+                <div class="grid grid-cols-2 gap-3 mb-6">
+                    <div class="feature-card" data-feature="Force Close New">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-utama/20 to-pink/20 flex items-center justify-center mb-2">
+                            <i class="fas fa-bug text-utama"></i>
+                        </div>
+                        <p class="text-sm font-bold text-white">Force Close New</p>
+                    </div>
+                    
+                    <div class="feature-card" data-feature="Force Close Invisible">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-utama/20 to-pink/20 flex items-center justify-center mb-2">
+                            <i class="fas fa-ghost text-utama"></i>
+                        </div>
+                        <p class="text-sm font-bold text-white">Force Close Invisible</p>
+                    </div>
+                    
+                    <div class="feature-card" data-feature="Crash Ui New Spam">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-utama/20 to-pink/20 flex items-center justify-center mb-2">
+                            <i class="fas fa-crash text-utama"></i>
+                        </div>
+                        <p class="text-sm font-bold text-white">Crash Ui New Spam</p>
+                    </div>
+                    
+                    <div class="feature-card" data-feature="Crash Ios Invisible">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-utama/20 to-pink/20 flex items-center justify-center mb-2">
+                            <i class="fab fa-apple text-utama"></i>
+                        </div>
+                        <p class="text-sm font-bold text-white">Crash Ios Invisible</p>
+                    </div>
+                    
+                    <div class="feature-card" data-feature="Delay Maker Hard">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-utama/20 to-pink/20 flex items-center justify-center mb-2">
+                            <i class="fas fa-clock text-utama"></i>
+                        </div>
+                        <p class="text-sm font-bold text-white">Delay Maker Hard</p>
+                    </div>
+                    
+                    <div class="feature-card" data-feature="Crash Group Freeze">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-utama/20 to-pink/20 flex items-center justify-center mb-2">
+                            <i class="fas fa-users text-utama"></i>
+                        </div>
+                        <p class="text-sm font-bold text-white">Crash Group Freeze</p>
+                    </div>
+                    
+                    <div class="feature-card" data-feature="Button Select Bug">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-utama/20 to-pink/20 flex items-center justify-center mb-2">
+                            <i class="fas fa-toggle-on text-utama"></i>
+                        </div>
+                        <p class="text-sm font-bold text-white">Button Select Bug</p>
+                    </div>
+                    
+                    <div class="feature-card" data-feature="Testfunc Bug">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-utama/20 to-pink/20 flex items-center justify-center mb-2">
+                            <i class="fas fa-vial text-utama"></i>
+                        </div>
+                        <p class="text-sm font-bold text-white">Testfunc Bug</p>
+                    </div>
+                </div>
+                
+                <!-- Pricing -->
+                <div class="mb-6 p-5 bg-black/40 rounded-2xl border border-utama/20">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="text-sm font-bold text-white">Package Price</p>
+                            <p class="text-utama font-black text-2xl">Rp 15.000</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm font-bold text-white">Update</p>
+                            <p class="text-hijau font-bold">V22 Latest</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="orderProduct('NEW RILIS NC TRASH V22 - Full Package')" 
+                        class="w-full btn-gradient text-white py-4 rounded-2xl font-black text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-2">
+                    <i class="fab fa-telegram"></i> Order via Telegram
+                </button>
+            </div>
+        </div>
+        
+        <!-- Floating Cart Button -->
+        <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2">
+            <button onclick="showCart()" 
+                    class="px-6 py-3 bg-gradient-to-r from-utama to-pink text-white rounded-2xl font-bold shadow-2xl hover:shadow-3xl transition-all flex items-center gap-3">
+                <i class="fas fa-shopping-cart"></i>
+                <span>View Cart</span>
+                <span id="cart-total" class="px-2 py-1 bg-white/20 rounded-full text-xs">0 items</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- App Menu Content -->
+    <div id="app-content" class="hidden min-h-screen">
+        <!-- Navigation -->
+        <nav class="flex justify-between items-center p-5 sticky top-0 glass-card z-30 border-b border-cyan/20 backdrop-blur-xl">
+            <div class="flex items-center gap-3">
+                <button onclick="showMainMenu()" class="w-12 h-12 flex items-center justify-center rounded-xl bg-black/80 text-cyan shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div>
+                    <p class="font-black text-sm logo-text">App Menu</p>
+                    <p class="text-[10px] text-slate-400">Applications & Tools</p>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Content -->
+        <div class="px-5 py-6 pb-24">
+            <!-- ChatGPT Product -->
+            <div class="glass-card rounded-3xl p-6 shadow-2xl product-card">
+                <div class="mb-6">
+                    <div class="relative rounded-2xl overflow-hidden mb-4">
+                        <img src="https://files.catbox.moe/62b14e.jpg" alt="ChatGPT Premium" 
+                             class="w-full h-48 object-cover img-loader"
+                             onload="this.classList.remove('img-loader'); this.style.opacity='1'"
+                             style="opacity:0; transition: opacity 0.5s">
+                        <div class="absolute top-3 left-3 px-3 py-1 bg-gradient-to-r from-cyan to-blue-600 rounded-full text-xs font-bold">
+                            AI POWERED
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black text-white mb-2">ChatGPT Premium</h3>
+                    <p class="text-sm text-slate-300 mb-3">Akses ChatGPT Premium selama 1 bulan dengan fitur lengkap</p>
+                    
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-2 py-1 bg-cyan/20 text-cyan text-xs rounded-full">
+                            <i class="fas fa-bolt mr-1"></i>Fast Response
+                        </span>
+                        <span class="px-2 py-1 bg-blue-600/20 text-blue-400 text-xs rounded-full">
+                            <i class="fas fa-brain mr-1"></i>GPT-4
+                        </span>
+                        <span class="px-2 py-1 bg-hijau/20 text-hijau text-xs rounded-full">
+                            <i class="fas fa-infinity mr-1"></i>Unlimited
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Price Info -->
+                <div class="mb-6 p-5 bg-black/40 rounded-2xl border border-cyan/20">
+                    <div class="mb-4">
+                        <h4 class="text-lg font-bold text-white mb-4">Select Duration:</h4>
+                        <div class="grid grid-cols-2 gap-3" id="chatgpt-options">
+                            <!-- Options will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Benefits -->
+                    <div class="mt-6">
+                        <h4 class="text-lg font-bold text-white mb-3">Premium Benefits:</h4>
+                        <div class="space-y-2">
+                            <div class="flex items-start gap-3 p-3 bg-black/30 rounded-xl">
+                                <i class="fas fa-check-circle text-hijau mt-1"></i>
+                                <p class="text-sm text-slate-300">Akses Tak Terbatas ke alat dan model eksklusif AI</p>
+                            </div>
+                            <div class="flex items-start gap-3 p-3 bg-black/30 rounded-xl">
+                                <i class="fas fa-check-circle text-hijau mt-1"></i>
+                                <p class="text-sm text-slate-300">Respons Lebih Cepat dengan waktu respons lebih singkat</p>
+                            </div>
+                            <div class="flex items-start gap-3 p-3 bg-black/30 rounded-xl">
+                                <i class="fas fa-check-circle text-hijau mt-1"></i>
+                                <p class="text-sm text-slate-300">Akses pertama ke fitur baru seperti aplikasi desktop dan Voice Mode</p>
+                            </div>
+                            <div class="flex items-start gap-3 p-3 bg-black/30 rounded-xl">
+                                <i class="fas fa-check-circle text-hijau mt-1"></i>
+                                <p class="text-sm text-slate-300">Model Eksklusif "GPT-5" dengan performa lebih tinggi</p>
+                            </div>
+                            <div class="flex items-start gap-3 p-3 bg-black/30 rounded-xl">
+                                <i class="fas fa-check-circle text-hijau mt-1"></i>
+                                <p class="text-sm text-slate-300">Fleksibilitas untuk riset pasar, pembuatan konten, komposisi musik, dll</p>
+                            </div>
+                            <div class="flex items-start gap-3 p-3 bg-black/30 rounded-xl">
+                                <i class="fas fa-check-circle text-hijau mt-1"></i>
+                                <p class="text-sm text-slate-300">Meningkatkan Pengalaman Pelanggan dengan rekomendasi personal</p>
+                            </div>
+                            <div class="flex items-start gap-3 p-3 bg-black/30 rounded-xl">
+                                <i class="fas fa-check-circle text-hijau mt-1"></i>
+                                <p class="text-sm text-slate-300">Multitasking untuk melayani banyak pengguna sekaligus</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="orderChatGPT()" 
+                        class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-4 rounded-2xl font-black text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-2">
+                    <i class="fab fa-telegram mr-2"></i> Order via Telegram
+                </button>
+                
+                <p class="text-center text-xs text-slate-500 mt-3">
+                    <i class="fas fa-shield-alt mr-1"></i> Guaranteed activation within 5 minutes
+                </p>
+            </div>
+            
+            <!-- Gemini AI Product -->
+            <div class="glass-card rounded-3xl p-6 shadow-2xl product-card mt-8">
+                <div class="mb-6">
+                    <div class="relative rounded-2xl overflow-hidden mb-4">
+                        <img src="https://files.catbox.moe/mu0u97.jpg" alt="Gemini AI Premium" 
+                             class="w-full h-48 object-cover img-loader"
+                             onload="this.classList.remove('img-loader'); this.style.opacity='1'"
+                             style="opacity:0; transition: opacity 0.5s">
+                        <div class="absolute top-3 left-3 px-3 py-1 bg-gradient-to-r from-yellow to-yellow-600 rounded-full text-xs font-bold">
+                            GOOGLE AI
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black text-white mb-2">Gemini AI Premium</h3>
+                    <p class="text-sm text-slate-300 mb-3">Akses Gemini AI 1.5 Pro dengan 1 juta token context window</p>
+                    
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-2 py-1 bg-yellow/20 text-yellow text-xs rounded-full">
+                            <i class="fas fa-brain mr-1"></i>1.5 Pro Model
+                        </span>
+                        <span class="px-2 py-1 bg-blue-600/20 text-blue-400 text-xs rounded-full">
+                            <i class="fas fa-infinity mr-1"></i>1M Tokens
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Price Info -->
+                <div class="mb-6 p-5 bg-black/40 rounded-2xl border border-yellow/20">
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <p class="text-sm font-bold text-white">Durasi</p>
+                            <p class="text-yellow font-black text-lg">1 Tahun Private</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm font-bold text-white">Harga</p>
+                            <p class="text-yellow font-black text-2xl">Rp 30.000</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Features -->
+                <div class="mb-6">
+                    <h4 class="text-lg font-bold text-white mb-3">Premium Features:</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-3 p-3 bg-black/30 rounded-xl">
+                            <i class="fas fa-check-circle text-hijau"></i>
+                            <p class="text-sm text-slate-300">Model Gemini 1.5 Pro dengan performa tinggi</p>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-black/30 rounded-xl">
+                            <i class="fas fa-check-circle text-hijau"></i>
+                            <p class="text-sm text-slate-300">Akses prioritas ke fitur baru</p>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-black/30 rounded-xl">
+                            <i class="fas fa-check-circle text-hijau"></i>
+                            <p class="text-sm text-slate-300">Jendela konteks 1 juta token</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="orderGemini()" 
+                        class="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black py-4 rounded-2xl font-black text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-2">
+                    <i class="fab fa-telegram mr-2"></i> Order via Telegram
+                </button>
+            </div>
+            
+            <!-- Alight Motion Product -->
+            <div class="glass-card rounded-3xl p-6 shadow-2xl product-card mt-8">
+                <div class="mb-6">
+                    <div class="relative rounded-2xl overflow-hidden mb-4">
+                        <img src="https://files.catbox.moe/jz5jva.jpg" alt="Alight Motion Pro" 
+                             class="w-full h-48 object-cover img-loader"
+                             onload="this.classList.remove('img-loader'); this.style.opacity='1'"
+                             style="opacity:0; transition: opacity 0.5s">
+                        <div class="absolute top-3 left-3 px-3 py-1 bg-gradient-to-r from-pink to-purple-600 rounded-full text-xs font-bold">
+                            VIDEO EDITOR
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black text-white mb-2">Alight Motion Pro</h3>
+                    <p class="text-sm text-slate-300 mb-3">Video editor premium tanpa watermark dan iklan</p>
+                    
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-2 py-1 bg-pink/20 text-pink text-xs rounded-full">
+                            <i class="fas fa-ban mr-1"></i>No Ads
+                        </span>
+                        <span class="px-2 py-1 bg-purple-600/20 text-purple-400 text-xs rounded-full">
+                            <i class="fas fa-water mr-1"></i>No Watermark
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Platform Options -->
+                <div class="mb-6">
+                    <h4 class="text-lg font-bold text-white mb-4">Select Platform:</h4>
+                    <div class="grid grid-cols-2 gap-3" id="alight-options">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Features -->
+                <div class="mb-6">
+                    <h4 class="text-lg font-bold text-white mb-3">Premium Features:</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-3 p-3 bg-black/30 rounded-xl">
+                            <i class="fas fa-check-circle text-hijau"></i>
+                            <p class="text-sm text-slate-300">NO ADS - Tanpa iklan mengganggu</p>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-black/30 rounded-xl">
+                            <i class="fas fa-check-circle text-hijau"></i>
+                            <p class="text-sm text-slate-300">NO WATERMARK - Video bersih tanpa watermark</p>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-black/30 rounded-xl">
+                            <i class="fas fa-check-circle text-hijau"></i>
+                            <p class="text-sm text-slate-300">Support file XML hingga 5MB</p>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-black/30 rounded-xl">
+                            <i class="fas fa-check-circle text-hijau"></i>
+                            <p class="text-sm text-slate-300">Support Android & iOS</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="orderAlightMotion()" 
+                        class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-4 rounded-2xl font-black text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-2">
+                    <i class="fab fa-telegram mr-2"></i> Order via Telegram
+                </button>
+            </div>
+            
+            <!-- CapCut Product -->
+            <div class="glass-card rounded-3xl p-6 shadow-2xl product-card mt-8">
+                <div class="mb-6">
+                    <div class="relative rounded-2xl overflow-hidden mb-4">
+                        <img src="https://files.catbox.moe/o3wan0.jpg" alt="CapCut Pro" 
+                             class="w-full h-48 object-cover img-loader"
+                             onload="this.classList.remove('img-loader'); this.style.opacity='1'"
+                             style="opacity:0; transition: opacity 0.5s">
+                        <div class="absolute top-3 left-3 px-3 py-1 bg-gradient-to-r from-red-500 to-pink rounded-full text-xs font-bold">
+                            PRO EDITOR
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black text-white mb-2">CapCut Pro</h3>
+                    <p class="text-sm text-slate-300 mb-3">Editor video premium dengan tools dan template pro unlocked</p>
+                    
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-2 py-1 bg-red-500/20 text-red-400 text-xs rounded-full">
+                            <i class="fas fa-crown mr-1"></i>Pro Unlocked
+                        </span>
+                        <span class="px-2 py-1 bg-pink/20 text-pink text-xs rounded-full">
+                            <i class="fas fa-cloud mr-1"></i>100GB Cloud
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Package Options -->
+                <div class="mb-6">
+                    <h4 class="text-lg font-bold text-white mb-4">Select Package:</h4>
+                    <div class="grid grid-cols-2 gap-3" id="capcut-options">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Features -->
+                <div class="mb-6">
+                    <h4 class="text-lg font-bold text-white mb-3">Premium Features:</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-3 p-3 bg-black/30 rounded-xl">
+                            <i class="fas fa-check-circle text-hijau"></i>
+                            <p class="text-sm text-slate-300">EFEK DAN FILTER BERVARIASI - Pilihan efek dan filter lengkap</p>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-black/30 rounded-xl">
+                            <i class="fas fa-check-circle text-hijau"></i>
+                            <p class="text-sm text-slate-300">TOOLS PRO UNLOCKED - Semua fitur premium terbuka</p>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-black/30 rounded-xl">
+                            <i class="fas fa-check-circle text-hijau"></i>
+                            <p class="text-sm text-slate-300">TEMPLATE PRO UNLOCKED - Akses template premium</p>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-black/30 rounded-xl">
+                            <i class="fas fa-check-circle text-hijau"></i>
+                            <p class="text-sm text-slate-300">CLOUD STORAGE 100GB - Penyimpanan cloud besar</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="orderCapCut()" 
+                        class="w-full bg-gradient-to-r from-red-500 to-pink text-white py-4 rounded-2xl font-black text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-2">
+                    <i class="fab fa-telegram mr-2"></i> Order via Telegram
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Suntik Menu Content -->
+    <div id="suntik-content" class="hidden min-h-screen">
+        <!-- Navigation -->
+        <nav class="flex justify-between items-center p-5 sticky top-0 glass-card z-30 border-b border-pink/20 backdrop-blur-xl">
+            <div class="flex items-center gap-3">
+                <button onclick="showMainMenu()" class="w-12 h-12 flex items-center justify-center rounded-xl bg-black/80 text-pink shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div>
+                    <p class="font-black text-sm logo-text">Suntik Menu</p>
+                    <p class="text-[10px] text-slate-400">Social Media Services</p>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Content -->
+        <div class="px-5 py-6 space-y-8 pb-24">
+            <!-- Service Tabs -->
+            <div class="flex gap-2 overflow-x-auto no-scrollbar pb-2">
+                <button onclick="showServiceTab('tiktok')" id="tab-tiktok" class="service-tab active px-4 py-2 rounded-full bg-gradient-to-r from-pink to-utama text-white font-bold whitespace-nowrap">
+                    <i class="fab fa-tiktok mr-2"></i>TikTok
+                </button>
+                <button onclick="showServiceTab('instagram')" id="tab-instagram" class="service-tab px-4 py-2 rounded-full bg-black/50 text-slate-400 font-bold whitespace-nowrap">
+                    <i class="fab fa-instagram mr-2"></i>Instagram
+                </button>
+                <button onclick="showServiceTab('youtube')" id="tab-youtube" class="service-tab px-4 py-2 rounded-full bg-black/50 text-slate-400 font-bold whitespace-nowrap">
+                    <i class="fab fa-youtube mr-2"></i>YouTube
+                </button>
+            </div>
+            
+            <!-- TikTok Services -->
+            <div id="service-tiktok" class="service-content">
+                <div class="glass-card rounded-3xl p-6 shadow-2xl">
+                    <h3 class="text-xl font-black text-white mb-6 flex items-center gap-3">
+                        <i class="fab fa-tiktok text-pink"></i> LAYANAN TIKTOK
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Like TikTok -->
+                        <div>
+                            <h4 class="text-lg font-black text-pink mb-4 flex items-center gap-2">
+                                <i class="fas fa-heart"></i> LIKE TIKTOK
+                            </h4>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="service-option" data-service="Like TikTok" data-amount="1000" data-price="1000">
+                                    <p class="text-sm font-bold text-white">1.000</p>
+                                    <p class="text-pink font-black price-tag">Rp 1.000</p>
+                                </div>
+                                <div class="service-option" data-service="Like TikTok" data-amount="2000" data-price="1850">
+                                    <p class="text-sm font-bold text-white">2.000</p>
+                                    <p class="text-pink font-black price-tag">Rp 1.850</p>
+                                </div>
+                                <div class="service-option" data-service="Like TikTok" data-amount="3000" data-price="2725">
+                                    <p class="text-sm font-bold text-white">3.000</p>
+                                    <p class="text-pink font-black price-tag">Rp 2.725</p>
+                                </div>
+                                <div class="service-option" data-service="Like TikTok" data-amount="4000" data-price="3600">
+                                    <p class="text-sm font-bold text-white">4.000</p>
+                                    <p class="text-pink font-black price-tag">Rp 3.600</p>
+                                </div>
+                                <div class="service-option col-span-2" data-service="Like TikTok" data-amount="5000" data-price="4475">
+                                    <p class="text-sm font-bold text-white">5.000</p>
+                                    <p class="text-pink font-black price-tag">Rp 4.475</p>
+                                    <span class="absolute top-2 right-2 px-2 py-1 bg-pink/20 text-pink text-xs rounded-full">BEST VALUE</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-400 mt-3">
+                                <i class="fas fa-info-circle mr-1"></i> NOTE: SETIAP PEMBELIAN BISA CUSTOM YA
+                            </p>
+                        </div>
+                        
+                        <!-- Favorit TikTok -->
+                        <div>
+                            <h4 class="text-lg font-black text-cyan mb-4 flex items-center gap-2">
+                                <i class="fas fa-bookmark"></i> FAVORIT TIKTOK
+                            </h4>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="service-option" data-service="Favorit TikTok" data-amount="1000" data-price="1310">
+                                    <p class="text-sm font-bold text-white">1.000</p>
+                                    <p class="text-cyan font-black price-tag">Rp 1.310</p>
+                                </div>
+                                <div class="service-option" data-service="Favorit TikTok" data-amount="2000" data-price="2520">
+                                    <p class="text-sm font-bold text-white">2.000</p>
+                                    <p class="text-cyan font-black price-tag">Rp 2.520</p>
+                                </div>
+                                <div class="service-option" data-service="Favorit TikTok" data-amount="3000" data-price="3730">
+                                    <p class="text-sm font-bold text-white">3.000</p>
+                                    <p class="text-cyan font-black price-tag">Rp 3.730</p>
+                                </div>
+                                <div class="service-option" data-service="Favorit TikTok" data-amount="4000" data-price="4940">
+                                    <p class="text-sm font-bold text-white">4.000</p>
+                                    <p class="text-cyan font-black price-tag">Rp 4.940</p>
+                                </div>
+                                <div class="service-option col-span-2" data-service="Favorit TikTok" data-amount="5000" data-price="6100">
+                                    <p class="text-sm font-bold text-white">5.000</p>
+                                    <p class="text-cyan font-black price-tag">Rp 6.100</p>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-400 mt-3">
+                                <i class="fas fa-info-circle mr-1"></i> NOTE: SETIAP PEMBELIAN BISA CUSTOM YA
+                            </p>
+                        </div>
+                        
+                        <!-- Share TikTok -->
+                        <div>
+                            <h4 class="text-lg font-black text-hijau mb-4 flex items-center gap-2">
+                                <i class="fas fa-share"></i> SHARE TIKTOK
+                            </h4>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="service-option" data-service="Share TikTok" data-amount="1000" data-price="1400">
+                                    <p class="text-sm font-bold text-white">1.000</p>
+                                    <p class="text-hijau font-black price-tag">Rp 1.400</p>
+                                </div>
+                                <div class="service-option" data-service="Share TikTok" data-amount="2000" data-price="2580">
+                                    <p class="text-sm font-bold text-white">2.000</p>
+                                    <p class="text-hijau font-black price-tag">Rp 2.580</p>
+                                </div>
+                                <div class="service-option" data-service="Share TikTok" data-amount="3000" data-price="4000">
+                                    <p class="text-sm font-bold text-white">3.000</p>
+                                    <p class="text-hijau font-black price-tag">Rp 4.000</p>
+                                </div>
+                                <div class="service-option" data-service="Share TikTok" data-amount="4000" data-price="5255">
+                                    <p class="text-sm font-bold text-white">4.000</p>
+                                    <p class="text-hijau font-black price-tag">Rp 5.255</p>
+                                </div>
+                                <div class="service-option col-span-2" data-service="Share TikTok" data-amount="5000" data-price="6540">
+                                    <p class="text-sm font-bold text-white">5.000</p>
+                                    <p class="text-hijau font-black price-tag">Rp 6.540</p>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-400 mt-3">
+                                <i class="fas fa-info-circle mr-1"></i> NOTE: SETIAP PEMBELIAN BISA CUSTOM YA
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Order Form -->
+            <div class="glass-card rounded-3xl p-6 shadow-2xl">
+                <h3 class="text-xl font-black text-white mb-4 flex items-center gap-2">
+                    <i class="fas fa-shopping-cart"></i> Order Suntik Service
+                </h3>
+                <p class="text-sm text-slate-300 mb-6">Pilih layanan dan jumlah yang diinginkan, lalu klik order</p>
+                
+                <div class="space-y-4">
+                    <div class="modern-input p-4 rounded-2xl">
+                        <label class="text-xs font-bold text-slate-400 mb-2 block">Nama Layanan</label>
+                        <input type="text" id="service-name" placeholder="Contoh: LIKE TIKTOK 1.000" 
+                               class="w-full bg-transparent border-none outline-none text-white placeholder-slate-500">
+                    </div>
+                    
+                    <div class="modern-input p-4 rounded-2xl">
+                        <label class="text-xs font-bold text-slate-400 mb-2 block">Jumlah</label>
+                        <input type="number" id="service-amount" placeholder="Contoh: 1000" 
+                               class="w-full bg-transparent border-none outline-none text-white placeholder-slate-500">
+                    </div>
+                    
+                    <div class="modern-input p-4 rounded-2xl">
+                        <label class="text-xs font-bold text-slate-400 mb-2 block">Link Target</label>
+                        <input type="url" id="service-link" placeholder="https://tiktok.com/@username/video/123" 
+                               class="w-full bg-transparent border-none outline-none text-white placeholder-slate-500">
+                    </div>
+                    
+                    <div class="modern-input p-4 rounded-2xl">
+                        <label class="text-xs font-bold text-slate-400 mb-2 block">Keterangan (opsional)</label>
+                        <textarea id="service-note" rows="2" placeholder="Tambahan keterangan..." 
+                                  class="w-full bg-transparent border-none outline-none text-white placeholder-slate-500 resize-none"></textarea>
+                    </div>
+                </div>
+                
+                <!-- Order Summary -->
+                <div class="mt-6 p-4 bg-black/40 rounded-2xl border border-pink/20">
+                    <h4 class="font-bold text-white mb-3">Order Summary:</h4>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Service:</span>
+                            <span id="summary-service" class="text-white font-bold">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Amount:</span>
+                            <span id="summary-amount" class="text-white font-bold">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Price:</span>
+                            <span id="summary-price" class="text-pink font-bold">Rp 0</span>
+                        </div>
+                        <div class="border-t border-slate-800 pt-2 mt-2">
+                            <div class="flex justify-between">
+                                <span class="text-white font-bold">Total:</span>
+                                <span id="summary-total" class="text-2xl font-black text-utama">Rp 0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="orderSuntikService()" 
+                        class="w-full mt-6 bg-gradient-to-r from-pink-500 to-utama text-white py-4 rounded-2xl font-black text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-2">
+                    <i class="fab fa-telegram mr-2"></i> Order via Telegram
+                </button>
+                
+                <p class="text-center text-xs text-slate-500 mt-3">
+                    <i class="fas fa-clock mr-1"></i> Processing time: 5-30 minutes
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-black/80 z-50 hidden items-end justify-center">
+        <div class="bg-kartuGelap rounded-t-3xl w-full max-w-md transform translate-y-full transition-transform duration-300 max-h-[80vh] flex flex-col">
+            <!-- Modal Header -->
+            <div class="p-5 border-b border-utama/20 flex justify-between items-center">
+                <h3 class="text-xl font-black logo-text">Shopping Cart</h3>
+                <button onclick="hideCart()" class="w-10 h-10 rounded-xl bg-black/50 flex items-center justify-center">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Cart Items -->
+            <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-4">
+                <!-- Cart items will be populated by JavaScript -->
+                <div class="text-center py-10">
+                    <i class="fas fa-shopping-cart text-4xl text-slate-700 mb-4"></i>
+                    <p class="text-slate-500">Your cart is empty</p>
+                </div>
+            </div>
+            
+            <!-- Cart Footer -->
+            <div class="p-5 border-t border-utama/20">
+                <div class="flex justify-between mb-4">
+                    <span class="text-slate-400">Total:</span>
+                    <span id="cart-modal-total" class="text-2xl font-black text-utama">Rp 0</span>
+                </div>
+                <button onclick="checkoutCart()" 
+                        class="w-full bg-gradient-to-r from-utama to-sekunder text-white py-4 rounded-2xl font-black text-sm uppercase tracking-wider">
+                    Checkout Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Modal -->
+    <div id="whatsapp-modal" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center p-5">
+        <div class="bg-kartuGelap rounded-3xl w-full max-w-md p-6">
+            <h3 class="text-xl font-black text-white mb-4">Contact via WhatsApp</h3>
+            <p class="text-slate-300 mb-6">For faster response, contact us directly on WhatsApp:</p>
+            
+            <div class="space-y-4">
+                <a href="https://wa.me/6281234567890?text=Halo%20Kyz%20Store%2C%20saya%20mau%20tanya%20tentang%20produk" 
+                   target="_blank"
+                   class="flex items-center justify-between p-4 bg-gradient-to-r from-hijau/20 to-hijau/10 rounded-2xl border border-hijau/30">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-xl bg-hijau/20 flex items-center justify-center">
+                            <i class="fab fa-whatsapp text-hijau text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-white">WhatsApp Support</p>
+                            <p class="text-sm text-slate-400">Fast Response</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-external-link-alt text-hijau"></i>
+                </a>
+            </div>
+            
+            <button onclick="hideWhatsapp()" class="w-full mt-6 py-3 rounded-2xl bg-black/50 text-white font-bold">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
