@@ -481,7 +481,7 @@ function checkoutCart() {
     ).join('%0A');
     
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const fullMessage = `Halo Kyz Store, saya mau order:%0A%0A${message}%0A%0ATotal: Rp ${total}%0A%0ATerima kasih!`;
+    const fullMessage = `bg mo beli:%0A%0A${message}%0A%0ATotal: Rp ${total}%0A%`;
     
     window.open(`https://t.me/rkyyzz?text=${fullMessage}`, '_blank');
     showToast('Opening Telegram for checkout...', 'success');
@@ -490,7 +490,7 @@ function checkoutCart() {
 // Order Functions
 function orderProduct(productName) {
     const telegramUser = "rkyyzz";
-    const message = `Halo Kyz Store, saya mau beli ${productName}. Mohon info lebih lanjut.`;
+    const message = `bg mo beli ${productName}.`;
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://t.me/${telegramUser}?text=${encodedMessage}`, '_blank');
     showToast('Opening Telegram...', 'success');
@@ -503,7 +503,7 @@ function orderChatGPT() {
     }
     
     const telegramUser = "rkyyzz";
-    const message = `Halo Kyz Store, saya mau beli ChatGPT Premium ${selectedChatGPT.duration} (Rp ${selectedChatGPT.price}). Mohon info lebih lanjut.`;
+    const message = `bg mo beli ChatGPT Premium ${selectedChatGPT.duration} (Rp ${selectedChatGPT.price})`;
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://t.me/${telegramUser}?text=${encodedMessage}`, '_blank');
     showToast('Opening Telegram...', 'success');
@@ -511,7 +511,7 @@ function orderChatGPT() {
 
 function orderGemini() {
     const telegramUser = "rkyyzz";
-    const message = `Halo Kyz Store, saya mau beli Gemini AI Premium - 1 Tahun Private (Rp 30.000). Mohon info lebih lanjut.`;
+    const message = `bg mo beli Gemini AI Premium - 1 Tahun Private (Rp 30.000)`;
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://t.me/${telegramUser}?text=${encodedMessage}`, '_blank');
     showToast('Opening Telegram...', 'success');
@@ -524,7 +524,7 @@ function orderAlightMotion() {
     }
     
     const telegramUser = "rkyyzz";
-    const message = `Halo Kyz Store, saya mau beli Alight Motion Pro untuk ${selectedAlightMotion.platform} - 1 Tahun (Rp ${selectedAlightMotion.price}). Mohon info lebih lanjut.`;
+    const message = `bg mo beli Alight Motion Pro untuk ${selectedAlightMotion.platform} - 1 Tahun (Rp ${selectedAlightMotion.price})`;
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://t.me/${telegramUser}?text=${encodedMessage}`, '_blank');
     showToast('Opening Telegram...', 'success');
@@ -537,7 +537,7 @@ function orderCapCut() {
     }
     
     const telegramUser = "rkyyzz";
-    const message = `Halo Kyz Store, saya mau beli CapCut Pro ${selectedCapCut.package} (Rp ${selectedCapCut.price}). Mohon info lebih lanjut.`;
+    const message = `bg mo beli CapCut Pro ${selectedCapCut.package} (Rp ${selectedCapCut.price})`;
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://t.me/${telegramUser}?text=${encodedMessage}`, '_blank');
     showToast('Opening Telegram...', 'success');
